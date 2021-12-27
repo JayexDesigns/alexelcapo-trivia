@@ -1,0 +1,29 @@
+@font-face {
+    font-family: '8 Bit Wonder';
+    src: url('fonts/8\ Bit\ Wonder.ttf') format('truetype');
+}
+
+:root {
+    --primary-color: #d4ccf5;
+    --secondary-color: #b1b1b6;
+    --accent-color-1: #32e1f2;
+    --accent-color-2: #d85deb;
+    --dark-color-1: #342c41;
+    --dark-color-2: #2c2c38;
+    --dark-color-3: #140d22;
+    --background-color: #050409;
+}
+
+
+
+body, body * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: '8 Bit Wonder';
+    color: var(--primary-color);
+}
+
+body {
+    background-color: var(--background-color);
+}

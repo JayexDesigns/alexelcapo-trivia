@@ -1,0 +1,67 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    min-height: 25rem;
+    width: 20rem;
+    background-color: var(--dark-color-3);
+    clip-path: polygon(2rem 0, calc(100% - 2rem) 0%, 100% 2rem, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 2rem 100%, 0 calc(100% - 2rem), 0% 2rem);
+}
+
+.card-theme {
+    margin: 1.5rem 1.5rem;
+    padding: 0.35rem 0.75rem 0.5rem 0.75rem;
+    font-size: 0.9rem;
+    border-bottom: 0.2rem solid #ffffff;
+    width: max-content;
+    max-width: 70%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.card h2 {
+    margin: 1.5rem;
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+}
+
+.card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.card li {
+    margin: 0.5rem 0;
+    min-height: 2.25rem;
+    width: 80%;
+}
+
+.card li button {
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    background-color: unset;
+    border: 0.2rem solid var(--primary-color);
+    transition: .25s ease-in-out;
+    word-wrap: break-word;
+}
+
+.card li button:not([disabled]) {
+    cursor: pointer;
+}
+
+.card li button:not([disabled]):hover {
+    color: var(--dark-color-3) !important;
+    background-color: var(--primary-color) !important;
+}
