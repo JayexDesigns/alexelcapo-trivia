@@ -1,8 +1,23 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Card.css';
 
 function Card(props) {
+    const [options, setOptions] = useState([]);
+    const [shuffled, setShuffled] = useState(false);
     const [answered, setAnswered] = useState("");
+
+    useEffect(() => {
+        if (!shuffled) {
+            for (let i = props.options.length-1; i > 0; --i) {
+                let j = Math.floor(Math.random() * i);
+                let val = props.options[i];
+                props.options[i] = props.options[j];
+                props.options[j] = val;
+            }
+            setOptions([...props.options]);
+            setShuffled(true);
+        }
+    }, [props.options, options, setOptions, shuffled, setShuffled]);
 
     const handleClick = (elem) => {
         setAnswered(elem);
@@ -14,7 +29,7 @@ function Card(props) {
             <div className="card-content">
                 <h2>{props.question}</h2>
                 <ul>
-                    {props.options.map((elem, index) => {
+                    {options.map((elem, index) => {
                         return (
                             <li key={index}><button disabled={(answered === "") ? false : true} onClick={() => handleClick(elem)}
                                 style={

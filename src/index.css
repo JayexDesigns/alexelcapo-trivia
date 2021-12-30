@@ -27,3 +27,9 @@ body, body * {
 body {
     background-color: var(--background-color);
 }
+
+
+
+*:focus {
+    outline: none;
+}

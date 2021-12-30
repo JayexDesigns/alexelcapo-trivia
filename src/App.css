@@ -5,7 +5,7 @@ nav {
     justify-content: center;
     align-items: center;
     position: fixed;
-    background-color: var(--background-color);
+    /* background-color: var(--background-color); */
     z-index: 10;
 }
 #nav-gap {

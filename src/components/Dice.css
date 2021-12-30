@@ -1,0 +1,82 @@
+.dice-section {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--dark-color-3);
+    clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 2rem, 100% 100%, 2rem 100%, 0 calc(100% - 2rem));
+    padding: 2rem 1.5rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.dice-section h2 {
+    font-size: 1.7rem;
+    margin-bottom: 2.25rem;
+}
+
+.dice-controls {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.dice-value-modifiers {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0.75rem;
+}
+
+.dice-value-modifiers > button {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    background-color: unset;
+    transition: .25s ease-in-out;
+    border: none;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.dice-controls label {
+    margin: 0 1rem;
+}
+
+.dice-controls input {
+    font-size: 1.1rem;
+    width: 3rem;
+    height: 2.25rem;
+    margin: 0;
+    text-align: center;
+    background-color: unset;
+    border: 0.2rem solid var(--primary-color);
+}
+
+.dice-section p {
+    margin: 1rem 0;
+}
+
+.dice-section > button {
+    margin-top: 1rem;
+    padding: 0.5rem 0.5rem;
+    background-color: unset;
+    border: 0.2rem solid var(--primary-color);
+    transition: .25s ease-in-out;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.dice-section > button:hover {
+    color: var(--dark-color-3) !important;
+    background-color: var(--primary-color) !important;
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
