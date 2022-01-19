@@ -6,6 +6,7 @@
     padding: 2rem 1.5rem;
     justify-content: center;
     align-items: center;
+    min-width: 400px;
 }
 
 .dice-section h2 {
@@ -52,10 +53,12 @@
 }
 
 .dice-section p {
+    font-size: 1.3rem;
     margin: 1rem 0;
 }
 
 .dice-section > button {
+    font-size: 1rem;
     margin-top: 1rem;
     padding: 0.5rem 0.5rem;
     background-color: unset;

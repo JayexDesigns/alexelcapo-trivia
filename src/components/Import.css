@@ -1,0 +1,15 @@
+#import {
+    font-size: 1.3rem;
+    margin: 0 2rem;
+    padding: 1.15rem 2.5rem;
+    border: none;
+    background-color: var(--dark-color-3);
+    clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 2rem, 100% 100%, 0 100%);
+    cursor: pointer;
+    transition: .15s ease-in-out;
+}
+
+#import:hover {
+    color: var(--dark-color-3);
+    background-color: var(--primary-color);
+}
