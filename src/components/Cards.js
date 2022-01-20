@@ -6,9 +6,12 @@ function Cards(props) {
             <h2>Cards</h2>
             <div className="cards-controls">
                 <select id="card-select">
-                    <option value="any">Any</option>
-                    <option value="coding">Coding</option>
-                    <option value="Gaming">Gaming</option>
+                    <option value="any">any</option>
+                    {props.themes.map((theme, index) => {
+                        return (
+                            <option key={index} value={theme.name}>{theme.name}</option>
+                        );
+                    })}
                 </select>
                 <button id="random-card">Random Card</button>
             </div>

@@ -32,10 +32,14 @@
     font-size: 1.2rem;
     margin: 0.5rem 0;
     background-color: unset;
-    transition: .25s ease-in-out;
+    transition: .15s ease-in-out;
     border: none;
     word-wrap: break-word;
     cursor: pointer;
+}
+
+.dice-value-modifiers > button:hover {
+    transform: scale(1.2);
 }
 
 .dice-controls label {
@@ -63,7 +67,7 @@
     padding: 0.5rem 0.5rem;
     background-color: unset;
     border: 0.2rem solid var(--primary-color);
-    transition: .25s ease-in-out;
+    transition: .15s ease-in-out;
     word-wrap: break-word;
     cursor: pointer;
 }

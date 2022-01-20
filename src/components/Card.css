@@ -53,7 +53,7 @@
     width: 100%;
     background-color: unset;
     border: 0.2rem solid var(--primary-color);
-    transition: .25s ease-in-out;
+    transition: .15s ease-in-out;
     word-wrap: break-word;
 }
 

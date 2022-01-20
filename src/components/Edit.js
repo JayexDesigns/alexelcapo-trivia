@@ -14,8 +14,8 @@ function Edit(props) {
         <div className="edit-section">
             <h2>Edit</h2>
             <div className="edit-controls">
-                <button id="edit-themes" onClick={() => editThemes()}><p>Edit Themes</p><p>0</p></button>
-                <button id="edit-cards" onClick={() => editCards()}><p>Edit Cards</p><p>0</p></button>
+                <button id="edit-themes" onClick={() => editThemes()}><p>Edit Themes</p><p>{props.themes.length}</p></button>
+                <button id="edit-cards" onClick={() => editCards()}><p>Edit Cards</p><p>{props.cards.length}</p></button>
             </div>
         </div>
     );

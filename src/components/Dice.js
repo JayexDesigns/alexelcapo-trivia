@@ -22,7 +22,7 @@ function Dice(props) {
             <h2>Dice</h2>
             <div className="dice-controls">
                 <label>min</label>
-                <input type="number" min={0} max={99} value={min} onChange={(e) => setMin(parseInt(e.target.value))}/>
+                <input autoComplete="off" type="number" min={0} max={99} value={min} onChange={(e) => setMin(parseInt(e.target.value))}/>
                 <div className="dice-value-modifiers">
                     <button onClick={() => setMin(prevState => (prevState < 99 && prevState < max) ? prevState+1 : prevState)}>
                         <FontAwesomeIcon icon={faChevronUp}></FontAwesomeIcon>
@@ -39,7 +39,7 @@ function Dice(props) {
                         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                     </button>
                 </div>
-                <input type="number" min={0} max={99} value={max} onChange={(e) => setMax(parseInt(e.target.value))}/>
+                <input autoComplete="off" type="number" min={0} max={99} value={max} onChange={(e) => setMax(parseInt(e.target.value))}/>
                 <label>max</label>
             </div>
             <p>Result: {value}</p>

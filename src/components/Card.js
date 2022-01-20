@@ -45,7 +45,7 @@ function Card(props) {
                                     {}
                                 }
                             >{elem}</button></li>
-                        )
+                        );
                     })}
                 </ul>
             </div>
