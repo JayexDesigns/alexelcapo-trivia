@@ -2,7 +2,6 @@ import './Edit.css';
 
 function Edit(props) {
     const editThemes = () => {
-        props.setChangesSaved(false);
         props.setEditThemesClicked(true);
     };
     const editCards = () => {
@@ -10,7 +9,6 @@ function Edit(props) {
             props.sendError("Create At Least 1 Theme First");
             return;
         }
-        props.setChangesSaved(false);
         props.setEditCardsClicked(true);
     };
 

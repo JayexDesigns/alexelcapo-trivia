@@ -90,6 +90,7 @@ function EditThemes(props) {
         }
         props.setThemes(prevState => unsavedThemes);
         props.setCards(prevState => unsavedCards);
+        props.setChangesSaved(false);
         document.getElementsByTagName("body")[0].style.overflow = "auto";
         props.setEditThemesClicked(false);
     };

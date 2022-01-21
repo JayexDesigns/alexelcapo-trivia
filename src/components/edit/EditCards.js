@@ -133,6 +133,7 @@ function EditThemes(props) {
             }
         }
         props.setCards(prevState => unsavedCards);
+        props.setChangesSaved(false);
         document.getElementsByTagName("body")[0].style.overflow = "auto";
         props.setEditCardsClicked(false);
     };

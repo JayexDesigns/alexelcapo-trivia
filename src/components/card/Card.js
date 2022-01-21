@@ -8,33 +8,38 @@ function Card(props) {
 
     useEffect(() => {
         if (!shuffled) {
-            for (let i = props.options.length-1; i > 0; --i) {
+            for (let i = props.cardData.options.length-1; i > 0; --i) {
                 let j = Math.floor(Math.random() * i);
-                let val = props.options[i];
-                props.options[i] = props.options[j];
-                props.options[j] = val;
+                let val = props.cardData.options[i];
+                props.cardData.options[i] = props.cardData.options[j];
+                props.cardData.options[j] = val;
             }
-            setOptions([...props.options]);
+            setOptions([...props.cardData.options]);
             setShuffled(true);
         }
-    }, [props.options, options, setOptions, shuffled, setShuffled]);
+    }, [props.cardData.options, options, setOptions, shuffled, setShuffled]);
 
     const handleClick = (elem) => {
         setAnswered(elem);
     };
 
+    const getThemeIndex = () => {
+        for (let i = 0; i < props.themes.length; ++i) if (props.themes[i].name === props.cardData.theme) return i;
+        return 0;
+    };
+
     return (
         <div className="card">
-            <p className="card-theme" style={{borderColor: props.themeColor}}>{props.theme}</p>
+            <p className="card-theme" style={{borderColor: `#${props.themes[getThemeIndex()].color}`}}>{props.cardData.theme}</p>
             <div className="card-content">
-                <h2>{props.question}</h2>
+                <h2>{props.cardData.question}</h2>
                 <ul>
                     {options.map((elem, index) => {
                         return (
                             <li key={index}><button disabled={(answered === "") ? false : true} onClick={() => handleClick(elem)}
                                 style={
                                     (answered === "") ? {} : 
-                                    (elem === props.correct) ? {
+                                    (elem === props.cardData.correct) ? {
                                         borderColor: "var(--accent-color-1)",
                                         backgroundColor: "var(--accent-color-1)",
                                         color: "var(--dark-color-3)"} :

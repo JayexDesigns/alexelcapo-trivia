@@ -2,7 +2,6 @@ import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import './App.css';
 import logo from './assets/logo.png';
-// import Card from './components/card/Card';
 import Cards from './components/main/Cards';
 import Dice from './components/main/Dice';
 import Edit from './components/main/Edit';
@@ -10,25 +9,15 @@ import Export from './components/main/Export';
 import Import from './components/main/Import';
 import EditThemes from './components/edit/EditThemes';
 import EditCards from './components/edit/EditCards';
+import CardShowcase from './components/card/CardShowcase';
 
 function App() {
-    // const [themes, setThemes] = useState([
-    //     {name: "gaming", color: "00ffcc"},
-    //     {name: "coding", color: "ff0066"},
-    // ]);
-    // const [cards, setCards] = useState([
-    //     {
-    //         theme: "coding",
-    //         question: "what language is used on the web",
-    //         options: ["PHP", "JavaScript", "C++", "Python"],
-    //         correct: "JavaScript"
-    //     }
-    // ]);
     const [themes, setThemes] = useState([]);
     const [cards, setCards] = useState([]);
     const [changesSaved, setChangesSaved] = useState(true);
     const [editThemesClicked, setEditThemesClicked] = useState(false);
     const [editCardsClicked, setEditCardsClicked] = useState(false);
+    const [cardShowing, setCardShowing] = useState(null);
 
     const sendError = (text) => {
         toast.error(text, {
@@ -61,6 +50,7 @@ function App() {
                 <Cards
                     themes={themes} setThemes={setThemes}
                     cards={cards} setCards={setCards}
+                    cardShowing={cardShowing} setCardShowing={setCardShowing}
                 ></Cards>
                 <Dice></Dice>
                 {/* <Card theme="coding" themeColor="#fca311" question="what language is used on the web" options={["PHP", "JavaScript", "C++", "Python"]} correct={"JavaScript"}></Card>
@@ -91,6 +81,12 @@ function App() {
                     cards={cards} setCards={setCards}
                     setChangesSaved={setChangesSaved} setEditCardsClicked={setEditCardsClicked}
                 ></EditCards> : null}
+            </div>
+            <div id="card-showing">
+                {cardShowing ? <CardShowcase
+                    themes={themes}
+                    cardData={cardShowing} setCardShowing={setCardShowing}
+                ></CardShowcase> : null}
             </div>
             <Toaster></Toaster>
         </div>
