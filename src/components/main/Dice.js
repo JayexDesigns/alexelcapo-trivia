@@ -4,16 +4,14 @@ import { faChevronUp, faChevronDown } from '@fortawesome/free-solid-svg-icons';
 import './Dice.css';
 
 function Dice(props) {
-    const [min, setMin] = useState(1);
-    const [max, setMax] = useState(6);
     const [value, setValue] = useState(1);
 
     const rollDice = () => {
-        if (min < 0) setMin(0);
-        else if (min > 99) setMin(99);
-        if (max < 0) setMax(0);
-        else if (max > 99) setMax(99);
-        let res = Math.floor(Math.random() * (max+1 - min)) + min;
+        if (props.min < 0) props.setMin(0);
+        else if (props.min > 99) props.setMin(99);
+        if (props.max < 0) props.setMax(0);
+        else if (props.max > 99) props.setMax(99);
+        let res = Math.floor(Math.random() * (props.max+1 - props.min)) + props.min;
         setValue(res);
     };
 
@@ -22,24 +20,24 @@ function Dice(props) {
             <h2>Dice</h2>
             <div className="dice-controls">
                 <label>min</label>
-                <input autoComplete="off" type="number" min={0} max={99} value={min} onChange={(e) => setMin(parseInt(e.target.value))}/>
+                <input autoComplete="off" type="number" min={0} max={99} value={props.min} onChange={(e) => props.setMin(parseInt(e.target.value))}/>
                 <div className="dice-value-modifiers">
-                    <button onClick={() => setMin(prevState => (prevState < 99 && prevState < max) ? prevState+1 : prevState)}>
+                    <button onClick={() => props.setMin(prevState => (prevState < 99 && prevState < props.max) ? prevState+1 : prevState)}>
                         <FontAwesomeIcon icon={faChevronUp}></FontAwesomeIcon>
                     </button>
-                    <button onClick={() => setMin(prevState => (prevState > 0) ? prevState-1 : prevState)}>
+                    <button onClick={() => props.setMin(prevState => (prevState > 0) ? prevState-1 : prevState)}>
                         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                     </button>
                 </div>
                 <div className="dice-value-modifiers">
-                    <button onClick={() => setMax(prevState => (prevState < 99) ? prevState+1 : prevState)}>
+                    <button onClick={() => props.setMax(prevState => (prevState < 99) ? prevState+1 : prevState)}>
                         <FontAwesomeIcon icon={faChevronUp}></FontAwesomeIcon>
                     </button>
-                    <button onClick={() => setMax(prevState => (prevState > 0 && prevState > min) ? prevState-1 : prevState)}>
+                    <button onClick={() => props.setMax(prevState => (prevState > 0 && prevState > props.min) ? prevState-1 : prevState)}>
                         <FontAwesomeIcon icon={faChevronDown}></FontAwesomeIcon>
                     </button>
                 </div>
-                <input autoComplete="off" type="number" min={0} max={99} value={max} onChange={(e) => setMax(parseInt(e.target.value))}/>
+                <input autoComplete="off" type="number" min={0} max={99} value={props.max} onChange={(e) => props.setMax(parseInt(e.target.value))}/>
                 <label>max</label>
             </div>
             <p>Result: {value}</p>

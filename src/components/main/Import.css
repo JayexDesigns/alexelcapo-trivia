@@ -13,3 +13,75 @@
     color: var(--dark-color-3);
     background-color: var(--primary-color);
 }
+
+.input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.input-prompt {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+    background-color: var(--dark-color-3);
+    z-index: 11;
+}
+
+.input-prompt h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    line-height: 2.25rem;
+}
+
+.input-prompt textarea {
+    background-color: unset;
+    padding: 1rem;
+    border: 0.2rem solid var(--primary-color);
+}
+
+.input-prompt button {
+    margin-top: 3rem;
+    padding: 0.85rem 0.85rem;
+    width: max-content;
+    font-size: 1rem;
+    background-color: unset;
+    border: 0.2rem solid var(--primary-color);
+    transition: .15s ease-in-out;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.input-prompt button:hover {
+    color: var(--dark-color-3) !important;
+    background-color: var(--primary-color) !important;
+}
+
+.popup-background {
+    background-color: #000000a0;
+    width: 100%;
+    height: 100%;
+}
+
+.exit-cross {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: .15s ease-in-out;
+    z-index: 12;
+}
+
+.exit-cross:hover {
+    transform: scale(1.2);
+}

@@ -1,13 +1,64 @@
+import { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import './Export.css';
 
 function Export(props) {
+    const [exportPrompt, setExportPrompt] = useState(false);
+    const [exportText, setExportText] = useState("");
+    const [exportTextWritten, setExportTextWritten] = useState(false);
+    const [textCopied, setTextCopied] = useState(false);
+
+    useEffect(() => {
+        if (exportPrompt) {
+            window.scrollTo(0, 0);
+            document.getElementsByTagName("body")[0].style.overflow = "hidden";
+        }
+        if (exportPrompt && !exportTextWritten) {
+            let data = {
+                themes: props.themes,
+                cards: props.cards,
+                diceMin: props.min,
+                diceMax: props.max,
+            };
+            data = JSON.stringify(data);
+            setExportText(data);
+            setExportTextWritten(true);
+        }
+    }, [exportPrompt, exportText, setExportText, props, exportTextWritten, setExportTextWritten]);
+
+    const close = () => {
+        document.getElementsByTagName("body")[0].style.overflow = "auto";
+        setExportTextWritten(false);
+        setTextCopied(false);
+        setExportPrompt(false);
+    }
+
     const handleClick = () => {
-        console.log("Exporting");
+        setExportPrompt(true);
+    };
+
+    const copyText = () => {
+        navigator.clipboard.writeText(exportText);
+        props.setChangesSaved(true);
+        setTextCopied(true);
     };
 
     return (
         <div className="export">
             <button id="export" onClick={() => handleClick()}>Export</button>
+            {exportPrompt ? 
+                <div className="export-area">
+                    <div className="popup-background" onClick={() => close()}>
+                        <FontAwesomeIcon icon={faTimes} className="exit-cross" onClick={() => close()}></FontAwesomeIcon>
+                    </div>
+                    <div className="export-prompt">
+                        <h2>Paste Here Your Exported JSON Text</h2>
+                        <textarea className="export-input" cols="40" rows="10" value={exportText} readOnly></textarea>
+                        <button className="export-done" onClick={() => copyText()}>{textCopied ? "Done" : "Copy"}</button>
+                    </div>
+                </div> : null
+            }
         </div>
     );
 }
