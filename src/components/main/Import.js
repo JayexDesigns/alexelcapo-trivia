@@ -38,8 +38,8 @@ function Import(props) {
     };
 
     const importJson = () => {
-        let data = JSON.parse(importText);
         try {
+            let data = JSON.parse(importText);
             let valid = true;
             props.setThemes(prevState => {
                 for (let i = 0; i < data.themes.length; ++i) if (!data.themes[i]["name"] || !data.themes[i]["color"]) {
