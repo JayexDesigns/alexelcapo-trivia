@@ -2,9 +2,9 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import toast, { Toaster } from 'react-hot-toast';
-import './Themes.css';
+import './EditThemes.css';
 
-function Themes(props) {
+function EditThemes(props) {
     const [unsavedThemes, setUnsavedThemes] = useState(props.themes.map(theme => ({...theme})));
     const [unsavedCards, setUnsavedCards] = useState(props.cards.map(card => ({...card})));
 
@@ -15,6 +15,7 @@ function Themes(props) {
 
     const closeEdit = () => {
         setUnsavedThemes(props.themes);
+        setUnsavedCards(props.cards);
         document.getElementsByTagName("body")[0].style.overflow = "auto";
         props.setEditThemesClicked(false);
     }
@@ -122,4 +123,4 @@ function Themes(props) {
     );
 }
 
-export default Themes;
+export default EditThemes;

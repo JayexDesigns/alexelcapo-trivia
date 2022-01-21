@@ -6,6 +6,10 @@ function Edit(props) {
         props.setEditThemesClicked(true);
     };
     const editCards = () => {
+        if (props.themes.length === 0) {
+            props.sendError("Create At Least 1 Theme First");
+            return;
+        }
         props.setChangesSaved(false);
         props.setEditCardsClicked(true);
     };

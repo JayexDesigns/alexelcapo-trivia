@@ -1,20 +1,44 @@
 import { useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import './App.css';
 import logo from './assets/logo.png';
-// import Card from './components/Card';
-import Cards from './components/Cards';
-import Dice from './components/Dice';
-import Edit from './components/Edit';
-import Export from './components/Export';
-import Import from './components/Import';
-import Themes from './components/edit/Themes';
+// import Card from './components/card/Card';
+import Cards from './components/main/Cards';
+import Dice from './components/main/Dice';
+import Edit from './components/main/Edit';
+import Export from './components/main/Export';
+import Import from './components/main/Import';
+import EditThemes from './components/edit/EditThemes';
+import EditCards from './components/edit/EditCards';
 
 function App() {
+    // const [themes, setThemes] = useState([
+    //     {name: "gaming", color: "00ffcc"},
+    //     {name: "coding", color: "ff0066"},
+    // ]);
+    // const [cards, setCards] = useState([
+    //     {
+    //         theme: "coding",
+    //         question: "what language is used on the web",
+    //         options: ["PHP", "JavaScript", "C++", "Python"],
+    //         correct: "JavaScript"
+    //     }
+    // ]);
     const [themes, setThemes] = useState([]);
     const [cards, setCards] = useState([]);
     const [changesSaved, setChangesSaved] = useState(true);
     const [editThemesClicked, setEditThemesClicked] = useState(false);
     const [editCardsClicked, setEditCardsClicked] = useState(false);
+
+    const sendError = (text) => {
+        toast.error(text, {
+            style: {
+                color: 'var(--dark-color-3)',
+                backgroundColor: 'var(--primary-color)',
+                fontSize: '0.85rem',
+            }
+        });
+    };
 
     window.onbeforeunload = () => {
         if (changesSaved) return;
@@ -32,6 +56,7 @@ function App() {
                     themes={themes} setThemes={setThemes}
                     cards={cards} setCards={setCards}
                     setChangesSaved={setChangesSaved} setEditThemesClicked={setEditThemesClicked} setEditCardsClicked={setEditCardsClicked}
+                    sendError={sendError}
                 ></Edit>
                 <Cards
                     themes={themes} setThemes={setThemes}
@@ -56,12 +81,18 @@ function App() {
                 ></Export>
             </div>
             <div id="edits">
-                {editThemesClicked ? <Themes
+                {editThemesClicked ? <EditThemes
                     themes={themes} setThemes={setThemes}
                     cards={cards} setCards={setCards}
                     setChangesSaved={setChangesSaved} setEditThemesClicked={setEditThemesClicked}
-                ></Themes> : null}
+                ></EditThemes> : null}
+                {editCardsClicked ? <EditCards
+                    themes={themes} setThemes={setThemes}
+                    cards={cards} setCards={setCards}
+                    setChangesSaved={setChangesSaved} setEditCardsClicked={setEditCardsClicked}
+                ></EditCards> : null}
             </div>
+            <Toaster></Toaster>
         </div>
     );
 }

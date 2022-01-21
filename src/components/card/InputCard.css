@@ -1,0 +1,122 @@
+.input-card {
+    display: flex;
+    flex-direction: column;
+    min-height: 25rem;
+    width: 20rem;
+    background-color: var(--dark-color-3);
+    clip-path: polygon(2rem 0, calc(100% - 2rem) 0%, 100% 2rem, 100% calc(100% - 2rem), calc(100% - 2rem) 100%, 2rem 100%, 0 calc(100% - 2rem), 0% 2rem);
+    margin: 0.5rem 1rem;
+}
+
+.input-card span {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.input-card-theme {
+    width: max-content;
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    padding: 0.35rem 0.75rem 0.5rem 0.75rem;
+    background-color: unset;
+    border: 0.2rem solid var(--primary-color);
+    transition: .15s ease-in-out;
+    word-wrap: break-word;
+    cursor: pointer;
+}
+
+.input-card-remove {
+    margin-top: 1.5rem;
+    margin-right: 2rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: .15s ease-in-out;
+}
+
+.input-card-remove:hover {
+    transform: scale(1.2);
+}
+
+.input-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.input-card-question {
+    margin: 1.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    line-height: 1.5rem;
+    background-color: unset;
+    border: none;
+    border-bottom: 0.15rem solid var(--primary-color);
+}
+
+.input-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+.input-card li {
+    margin: 0.1rem 0;
+    min-height: 2.25rem;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-card li input {
+    width: 12rem;
+    background-color: unset;
+    font-size: 0.85rem;
+    border: none;
+    padding-bottom: 0.5rem;
+    border-bottom: 0.15rem solid var(--primary-color);
+}
+
+.input-card-option-remove, .input-card-option-correct {
+    margin: 0 0.5rem;
+    cursor: pointer;
+    transition: .15s ease-in-out;
+}
+
+.input-card-option-correct-checked path {
+    color: #00ffcc;
+}
+
+.input-card-option-remove:hover, .input-card-option-correct:hover {
+    transform: scale(1.2);
+}
+
+.input-card-add-option {
+    margin-top: 1rem;
+}
+
+.input-card li button {
+    padding: 0.5rem 0.5rem;
+    width: 100%;
+    background-color: unset;
+    border: 0.2rem solid var(--primary-color);
+    transition: .15s ease-in-out;
+    word-wrap: break-word;
+}
+
+.input-card li button:not([disabled]) {
+    cursor: pointer;
+}
+
+.input-card li button:not([disabled]):hover {
+    color: var(--dark-color-3) !important;
+    background-color: var(--primary-color) !important;
+}
