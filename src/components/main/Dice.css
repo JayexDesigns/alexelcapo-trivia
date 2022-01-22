@@ -6,7 +6,8 @@
     padding: 2rem 1.5rem;
     justify-content: center;
     align-items: center;
-    min-width: 400px;
+    min-width: 250px;
+    width: 400px;
 }
 
 .dice-section h2 {
@@ -44,6 +45,12 @@
 
 .dice-controls label {
     margin: 0 1rem;
+}
+
+@media (max-width: 450px) {
+    .dice-controls label {
+        display: none;
+    }
 }
 
 .dice-controls input {

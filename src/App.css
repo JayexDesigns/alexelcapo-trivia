@@ -32,9 +32,10 @@ nav > img {
 }
 
 #import-export {
-    margin-top: 7rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: row;
     justify-content: center;
+    flex-wrap: wrap;
     margin-bottom: 5rem;
 }
