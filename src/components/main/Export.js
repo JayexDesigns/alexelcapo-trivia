@@ -39,6 +39,7 @@ function Export(props) {
     };
 
     const copyText = () => {
+        console.log(exportText);
         navigator.clipboard.writeText(exportText);
         props.setChangesSaved(true);
         setTextCopied(true);

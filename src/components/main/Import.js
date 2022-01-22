@@ -42,20 +42,32 @@ function Import(props) {
             let data = JSON.parse(importText);
             let valid = true;
             props.setThemes(prevState => {
-                for (let i = 0; i < data.themes.length; ++i) if (!data.themes[i]["name"] || !data.themes[i]["color"]) {
-                    valid = false;
-                    importErrorToast();
-                    return [];
+                try {
+                    for (let i = 0; i < data.themes.length; ++i) if (!data.themes[i]["name"] || !data.themes[i]["color"]) {
+                        valid = false;
+                        importErrorToast();
+                        return [];
+                    }
+                    return data.themes;
                 }
-                return data.themes;
+                catch (error) {
+                    console.log(error);
+                    importErrorToast();
+                }
             });
             if (valid) props.setCards(prevState => {
-                for (let i = 0; i < data.cards.length; ++ i) if (!data.cards[i].theme || !data.cards[i].question || !data.cards[i].options || !data.cards[i].correct || data.cards[i].options.length < 1) {
-                    valid = false;
-                    importErrorToast();
-                    return [];
+                try {
+                    for (let i = 0; i < data.cards.length; ++ i) if (!data.cards[i].theme || !data.cards[i].question || !data.cards[i].options || !data.cards[i].correct || data.cards[i].options.length < 1) {
+                        valid = false;
+                        importErrorToast();
+                        return [];
+                    }
+                    return data.cards;
                 }
-                return data.cards;
+                catch (error) {
+                    console.log(error);
+                    importErrorToast();
+                }
             });
             if (valid) props.setMin(data.diceMin);
             if (valid) props.setMax(data.diceMax);
