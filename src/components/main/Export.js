@@ -53,7 +53,7 @@ function Export(props) {
                         <FontAwesomeIcon icon={faTimes} className="exit-cross" onClick={() => close()}></FontAwesomeIcon>
                     </div>
                     <div className="export-prompt">
-                        <h2>Paste Here Your Exported JSON Text</h2>
+                        <h2>Copy The Text Below For Importing Later</h2>
                         <textarea className="export-input" cols="40" rows="10" value={exportText} readOnly></textarea>
                         <button className="export-done" onClick={() => copyText()}>{textCopied ? "Done" : "Copy"}</button>
                     </div>
