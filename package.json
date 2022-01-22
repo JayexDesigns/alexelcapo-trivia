@@ -2,7 +2,7 @@
     "name": "alexelcapo-trivia",
     "version": "0.1.0",
     "private": true,
-	"homepage": "http://jayexdesigns.github.io/alexelcapo-trivia",
+    "homepage": "http://jayexdesigns.github.io/alexelcapo-trivia",
     "dependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.36",
         "@fortawesome/free-brands-svg-icons": "^5.15.4",
@@ -13,6 +13,7 @@
         "@testing-library/user-event": "^13.5.0",
         "gh-pages": "^3.2.3",
         "react": "^17.0.2",
+        "react-copy-to-clipboard": "^5.0.4",
         "react-dom": "^17.0.2",
         "react-hot-toast": "^2.2.0",
         "react-scripts": "5.0.0",

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './Export.css';
 
 function Export(props) {
@@ -39,8 +40,8 @@ function Export(props) {
     };
 
     const copyText = () => {
-        console.log(exportText);
-        navigator.clipboard.writeText(exportText);
+        // console.log(exportText);
+        // navigator.clipboard.writeText(exportText);
         props.setChangesSaved(true);
         setTextCopied(true);
     };
@@ -56,7 +57,9 @@ function Export(props) {
                     <div className="export-prompt">
                         <h2>Copy The Text Below For Importing Later</h2>
                         <textarea className="export-input" cols="40" rows="10" value={exportText} readOnly></textarea>
-                        <button className="export-done" onClick={() => copyText()}>{textCopied ? "Done" : "Copy"}</button>
+                        <CopyToClipboard text={exportText}>
+                            <button className="export-done" onClick={() => copyText()}>{textCopied ? "Done" : "Copy"}</button>
+                        </CopyToClipboard>
                     </div>
                 </div> : null
             }
