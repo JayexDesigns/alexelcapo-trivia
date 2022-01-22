@@ -1,12 +1,24 @@
 #import {
     font-size: 1.3rem;
-    margin: 4rem 2rem;
+    margin: 0rem 2rem;
     padding: 1.15rem 2.5rem;
     border: none;
     background-color: var(--dark-color-3);
     clip-path: polygon(0 0, calc(100% - 2rem) 0%, 100% 2rem, 100% 100%, 0 100%);
     cursor: pointer;
     transition: .15s ease-in-out;
+}
+
+@media (max-width: 600px) {
+    #import {
+        margin: 4rem 5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    #import {
+        margin: 4rem 2rem;
+    }
 }
 
 #import:hover {
