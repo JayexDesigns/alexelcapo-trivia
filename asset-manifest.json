@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/alexelcapo-trivia/static/css/main.3dd8d27f.css",
-    "main.js": "/alexelcapo-trivia/static/js/main.acb12518.js",
+    "main.css": "/alexelcapo-trivia/static/css/main.79afa74b.css",
+    "main.js": "/alexelcapo-trivia/static/js/main.e138438a.js",
     "static/media/logo.png": "/alexelcapo-trivia/static/media/logo.11f4e54445d64dac6fc8.png",
     "static/media/8 Bit Wonder.ttf": "/alexelcapo-trivia/static/media/8 Bit Wonder.5fa66681c6f0a8153b97.ttf",
     "index.html": "/alexelcapo-trivia/index.html",
-    "main.3dd8d27f.css.map": "/alexelcapo-trivia/static/css/main.3dd8d27f.css.map",
-    "main.acb12518.js.map": "/alexelcapo-trivia/static/js/main.acb12518.js.map"
+    "main.79afa74b.css.map": "/alexelcapo-trivia/static/css/main.79afa74b.css.map",
+    "main.e138438a.js.map": "/alexelcapo-trivia/static/js/main.e138438a.js.map"
   },
   "entrypoints": [
-    "static/css/main.3dd8d27f.css",
-    "static/js/main.acb12518.js"
+    "static/css/main.79afa74b.css",
+    "static/js/main.e138438a.js"
   ]
 }
