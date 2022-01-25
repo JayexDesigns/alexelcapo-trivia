@@ -38,45 +38,76 @@ function Import(props) {
     };
 
     const importJson = () => {
-        try {
-            let data = JSON.parse(importText);
-            let valid = true;
+        let data = importText.split("\n");
+        if (data[0].toLowerCase().startsWith("pregunta,respuesta") && data.length > 1) {
+            let lastTheme = "0";
             props.setThemes(prevState => {
-                try {
-                    for (let i = 0; i < data.themes.length; ++i) if (!data.themes[i]["name"] || !data.themes[i]["color"]) {
-                        valid = false;
-                        importErrorToast();
-                        return [];
+                for (let theme of prevState) {
+                    if (theme.name.startsWith("imported-")) {
+                        lastTheme = theme.name.split("-")[2];
                     }
-                    return data.themes;
                 }
-                catch (error) {
-                    console.log(error);
-                    importErrorToast();
-                }
+                prevState = [...prevState, {"name": `imported-${parseInt(lastTheme)+1}`, "color": "ffffff"}];
+                return prevState;
             });
-            if (valid) props.setCards(prevState => {
-                try {
-                    for (let i = 0; i < data.cards.length; ++ i) if (!data.cards[i].theme || !data.cards[i].question || !data.cards[i].options || !data.cards[i].correct || data.cards[i].options.length < 1) {
-                        valid = false;
-                        importErrorToast();
-                        return [];
-                    }
-                    return data.cards;
-                }
-                catch (error) {
-                    console.log(error);
-                    importErrorToast();
-                }
+
+            let cards = [];
+            for (let i = 1; i < data.length; ++i) {
+                let question = data[i].split(",")[0];
+                let option = data[i].split(",")[1];
+                cards.push({
+                    "theme":`imported-${parseInt(lastTheme)+1}`,"question":question,"options":[option],"correct":option
+                });
+            }
+            props.setCards(prevState => {
+                prevState = [...prevState, ...cards];
+                return prevState;
             });
-            if (valid) props.setMin(data.diceMin);
-            if (valid) props.setMax(data.diceMax);
-            if (valid) props.setChangesSaved(false);
-            if (valid) close();
+
+            props.setChangesSaved(false);
+            close();
         }
-        catch (error) {
-            console.log(error);
-            importErrorToast();
+        else {
+            try {
+                let data = JSON.parse(importText);
+                let valid = true;
+                props.setThemes(prevState => {
+                    try {
+                        for (let i = 0; i < data.themes.length; ++i) if (!data.themes[i]["name"] || !data.themes[i]["color"]) {
+                            valid = false;
+                            importErrorToast();
+                            return [];
+                        }
+                        return data.themes;
+                    }
+                    catch (error) {
+                        console.log(error);
+                        importErrorToast();
+                    }
+                });
+                if (valid) props.setCards(prevState => {
+                    try {
+                        for (let i = 0; i < data.cards.length; ++ i) if (!data.cards[i].theme || !data.cards[i].question || !data.cards[i].options || !data.cards[i].correct || data.cards[i].options.length < 1) {
+                            valid = false;
+                            importErrorToast();
+                            return [];
+                        }
+                        return data.cards;
+                    }
+                    catch (error) {
+                        console.log(error);
+                        importErrorToast();
+                    }
+                });
+                if (valid) props.setMin(data.diceMin);
+                if (valid) props.setMax(data.diceMax);
+                if (valid) props.setChangesSaved(false);
+                if (valid) close();
+            }
+            catch (error) {
+                console.log(error);
+                importErrorToast();
+            }
         }
     };
 
