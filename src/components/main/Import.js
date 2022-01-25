@@ -39,12 +39,12 @@ function Import(props) {
 
     const importJson = () => {
         let data = importText.split("\n");
-        if (data[0].toLowerCase().startsWith("pregunta,respuesta") && data.length > 1) {
+        if (data.length > 1 && !data[0].startsWith("{")) {
             let lastTheme = "0";
             props.setThemes(prevState => {
                 for (let theme of prevState) {
                     if (theme.name.startsWith("imported-")) {
-                        lastTheme = theme.name.split("-")[2];
+                        lastTheme = theme.name.split("-")[1];
                     }
                 }
                 prevState = [...prevState, {"name": `imported-${parseInt(lastTheme)+1}`, "color": "ffffff"}];
@@ -52,7 +52,9 @@ function Import(props) {
             });
 
             let cards = [];
-            for (let i = 1; i < data.length; ++i) {
+            let i = 0;
+            if (data[0].toLowerCase().startsWith("pregunta,respuesta")) i = 1;
+            for (i; i < data.length; ++i) {
                 let question = data[i].split(",")[0];
                 let option = data[i].split(",")[1];
                 cards.push({
