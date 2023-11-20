@@ -1,4 +1,4 @@
-<h3 align="center"><img src='https://raw.githubusercontent.com/JayexDesigns/alexelcapo-trivia/main/src/assets/logo.png' width='40%'></h3>
+<h3 align="center"><img src='./src/assets/logo.png' width='40%'></h3>
 <h1 align="center">Alexelcapo Trivia</h1>
 <p align="center">This is a trivia card application for the streamer "Alexelcapo"</p>
 <br/>
